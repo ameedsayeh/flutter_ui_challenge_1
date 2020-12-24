@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ui_challenge_1/globals/color_palette.dart';
 import 'package:ui_challenge_1/pages/cells/task_cell.dart';
+import 'package:get/get.dart';
+
+import 'cells/task_tile_cell.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -32,7 +35,7 @@ class HomePage extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        "Create New Task",
+                        'createNewTask'.tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 24,
@@ -48,7 +51,7 @@ class HomePage extends StatelessWidget {
                             Icons.add,
                             color: Colors.black,
                           ),
-                          tooltip: 'New Task',
+                          tooltip: 'newTask'.tr,
                           onPressed: () {},
                         ),
                         flex: 1),
@@ -66,24 +69,27 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Todays task",
+                "todaysTasks".tr,
                 textAlign: TextAlign.start,
                 style: TextStyle(
-                    color: ColorPalette.grayTextColor,
-                    fontSize: 16,
-                    fontFamily: "OpenSans",
-                    fontWeight: FontWeight.w600),
+                  color: ColorPalette.grayTextColor,
+                  fontSize: 16,
+                  fontFamily: "OpenSans",
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               SizedBox(
                 height: 12,
               ),
               Column(
                 children: [
-                  TaskCell(Task("Sketching", Colors.purple, "09.00 - 10.00")),
-                  TaskCell(Task(
+                  TaskTileCell(
+                      Task("Sketching", Colors.purple, "09.00 - 10.00")),
+                  TaskTileCell(Task(
                       "Meeting with team", Colors.yellow, "10.30 - 11.30")),
-                  TaskCell(Task("Lunch", Colors.blueAccent, "12.00 - 13.00")),
-                  TaskCell(Task("Sleep", Colors.green, "14.00 - 16.00"))
+                  TaskTileCell(
+                      Task("Lunch", Colors.blueAccent, "12.00 - 13.00")),
+                  TaskTileCell(Task("Sleep", Colors.green, "14.00 - 16.00"))
                 ],
               )
             ],

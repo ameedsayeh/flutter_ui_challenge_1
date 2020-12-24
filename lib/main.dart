@@ -1,14 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 import 'package:ui_challenge_1/app_page.dart';
+import 'package:ui_challenge_1/translations/dictionary.dart';
 
 void main() {
-  Get.updateLocale(Locale("ar"));
+  var direction = TextDirection.ltr;
 
-  runApp(GetMaterialApp(
-      locale: Locale("ar"),
+  if (Get.deviceLocale.languageCode == "ar") {
+    direction = TextDirection.rtl;
+  }
+
+  Get.updateLocale(Locale(Get.deviceLocale.languageCode));
+
+  runApp(
+    GetMaterialApp(
+      translations: Dictionary(),
+      fallbackLocale: Locale('en'),
       debugShowCheckedModeBanner: false,
       title: "UI Challenge 1",
       theme: ThemeData.light(),
-      home: AppPage()));
+      home: Directionality(
+        textDirection: direction,
+        child: AppPage(),
+      ),
+    ),
+  );
 }
