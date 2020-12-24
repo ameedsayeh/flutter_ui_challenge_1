@@ -76,7 +76,7 @@ class TaskCell extends StatelessWidget {
                     color: ColorPalette.separatorColor,
                   )
                 ]),
-                flex: 1)
+                flex: 1),
           ],
         ));
   }
