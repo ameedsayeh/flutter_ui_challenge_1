@@ -8,17 +8,12 @@ import 'cells/task_tile_cell.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
       children: [
         Container(
-          height: MediaQuery.of(context).size.height / 3,
-          alignment: Alignment.center,
-          child: Padding(
-            padding: EdgeInsets.only(left: 16, right: 16),
-            child: Image.asset(
-              "assets/images/team.png",
-              fit: BoxFit.scaleDown,
-            ),
+          padding: EdgeInsets.all(24),
+          child: Image.asset(
+            "assets/images/team.png",
           ),
         ),
         Container(
@@ -63,38 +58,55 @@ class HomePage extends StatelessWidget {
           height: 16,
         ),
         Container(
-            child: Padding(
-          padding: EdgeInsets.only(left: 16, right: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "todaysTasks".tr,
-                textAlign: TextAlign.start,
-                style: TextStyle(
-                  color: ColorPalette.grayTextColor,
-                  fontSize: 16,
-                  fontFamily: "OpenSans",
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              SizedBox(
-                height: 12,
-              ),
-              Column(
-                children: [
-                  TaskTileCell(
-                      Task("Sketching", Colors.purple, "09.00 - 10.00")),
-                  TaskTileCell(Task(
-                      "Meeting with team", Colors.yellow, "10.30 - 11.30")),
-                  TaskTileCell(
-                      Task("Lunch", Colors.blueAccent, "12.00 - 13.00")),
-                  TaskTileCell(Task("Sleep", Colors.green, "14.00 - 16.00"))
-                ],
-              )
-            ],
+          child: Text(
+            "todaysTasks".tr,
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              color: ColorPalette.grayTextColor,
+              fontSize: 16,
+              fontFamily: "OpenSans",
+              fontWeight: FontWeight.w600,
+            ),
           ),
-        ))
+        ),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16, right: 16),
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                TaskTileCell(
+                  Task(
+                    "Sketching",
+                    Colors.purple,
+                    "09.00 - 10.00",
+                  ),
+                ),
+                TaskTileCell(
+                  Task(
+                    "Meeting with team",
+                    Colors.yellow,
+                    "10.30 - 11.30",
+                  ),
+                ),
+                TaskTileCell(
+                  Task(
+                    "Lunch",
+                    Colors.blueAccent,
+                    "12.00 - 13.00",
+                  ),
+                ),
+                TaskTileCell(
+                  Task(
+                    "Sleep",
+                    Colors.green,
+                    "14.00 - 16.00",
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }

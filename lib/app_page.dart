@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_challenge_1/globals/color_palette.dart';
 import 'package:ui_challenge_1/pages/home_page.dart';
+import 'package:ui_challenge_1/pages/settings_page.dart';
 
 class AppPage extends StatefulWidget {
   @override
@@ -10,7 +11,7 @@ class AppPage extends StatefulWidget {
 class _AppPageState extends State<AppPage> {
   int _selectedIndex = 0;
 
-  final _childrenPages = [HomePage(), HomePage(), HomePage(), HomePage()];
+  final _childrenPages = [HomePage(), HomePage(), SettingsPage(), HomePage()];
   void _onItemTappped(int value) {
     setState(() {
       _selectedIndex = value;

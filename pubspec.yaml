@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   get:
+  get_storage:
 
   cupertino_icons: ^1.0.0
 
@@ -37,7 +38,7 @@ flutter:
 
   assets:
   - assets/icons/settings_icon.png
-  - assets/images/team.png
+  - assets/images/
 
   fonts:
     - family: OpenSans
